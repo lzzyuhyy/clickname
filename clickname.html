@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="name">
+		<input type="button" id="btn" value="抽奖机">
+	</body>
+	<script>
+		var list=[
+			"蔡兴旺",
+			"寇李煜",
+			"高一",
+			"李子卓",
+			"武艺",
+			"雷宏泽",
+			"季子川",
+			"周旭",
+			"蔺博文",
+			"王皓",
+			"邵钰博",
+			"郭硕豪",
+			"丁宏瑒",
+			"于子涵",
+			"李爽",
+			"任文豪"
+		]
+		
+		var btnEl = document.getElementById("btn")
+		var nameEl = document.getElementById("name")
+		var timer = null;
+		var flag = true;
+		btnEl.addEventListener("click",()=>{
+			
+			if (!flag) {
+				clearInterval(timer)
+				flag = true
+				btnEl.value = "抽奖机"
+			}else{
+				flag = false
+				btnEl.value = "抽奖中"
+				timer = setInterval(()=>{
+					var i = parseInt(Math.random()*list.length)
+					nameEl.value = list[i]
+				},50)
+			}
+			
+			
+			
+			// setTimeout(()=>{
+			// 	clearInterval(timer)
+			// },5000)
+		})
+		
+	</script>
+</html>
